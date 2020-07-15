@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/menu_home" />
+    </group>
+
+    <item
+        android:title="Data Master"
+        android:id="@+id/master">
+        <menu>
+            <group android:checkableBehavior="single">
+            <item
+                android:id="@+id/nav_gallery"
+                android:icon="@drawable/ic_criteria"
+                android:title="@string/menu_kriteria" />
+            <item
+                android:id="@+id/nav_slideshow"
+                android:icon="@drawable/ic_criteria"
+                android:title="@string/menu_subkriteria" />
+            <item
+                android:id="@+id/nav_rekomendasi"
+                android:icon="@drawable/ic_rekomendasi"
+                android:title="@string/menu_rekomendasi" />
+            <item
+                android:id="@+id/nav_rekom_nilai"
+                android:icon="@drawable/ic_rekomendasi"
+                android:title="@string/menu_rekomendasi_nilai" />
+            <item
+                android:id="@+id/nav_bobot"
+                android:icon="@drawable/ic_bobot"
+                android:title="@string/menu_bobot" />
+            <item
+                android:id="@+id/nav_siswa"
+                android:icon="@drawable/ic_siswa"
+                android:title="@string/menu_siswa" />
+            </group>
+        </menu>
+    </item>
+    <item
+        android:title="Perhitungan"
+        android:id="@+id/perhitungan">
+        <menu>
+        <group android:checkableBehavior="single">
+            <item
+                android:id="@+id/nav_nilai_gap"
+                android:icon="@drawable/ic_nilai_gap"
+                android:title="@string/menu_nilai_gap" />
+            <item
+                android:id="@+id/nav_bobot_gap"
+                android:icon="@drawable/ic_nilai_gap"
+                android:title="@string/menu_bobot_gap" />
+            <item
+                android:id="@+id/nav_faktor"
+                android:icon="@drawable/ic_faktor"
+                android:title="@string/menu_faktor" />
+            </group>
+        </menu>
+    </item>
+    <item
+        android:title="Sistem"
+        android:id="@+id/sistem">
+        <menu>
+        <group android:checkableBehavior="single">
+            <item
+                android:id="@+id/nav_laporan"
+                android:icon="@drawable/ic_laporan"
+                android:title="@string/menu_laporan" />
+            <item
+                android:id="@+id/nav_pengaturan"
+                android:icon="@drawable/ic_setting"
+                android:title="@string/menu_pengaturan" />
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_logout"
+                android:title="@string/menu_logout" />
+        </group>
+        </menu>
+    </item>
+</menu>

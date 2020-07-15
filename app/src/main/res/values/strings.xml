@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">SPKPM</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Beranda</string>
+    <string name="menu_kriteria">Kriteria</string>
+    <string name="menu_subkriteria">SubKriteria</string>
+    <string name="menu_rekomendasi">Rekomendasi</string>
+    <string name="menu_rekomendasi_nilai">Rekomendasi  Nilai</string>
+    <string name="menu_bobot">Bobot Nilai</string>
+    <string name="menu_siswa">Siswa</string>
+    <string name="menu_faktor"><![CDATA[Faktor & Hasil Akhir]]></string>
+    <string name="menu_bobot_gap">Bobot Gap</string>
+    <string name="menu_nilai_gap">Nilai Gap</string>
+    <string name="menu_laporan">Laporan</string>
+    <string name="menu_pengaturan">Pengaturan</string>
+    <string name="menu_logout">Logout</string>
+</resources>
