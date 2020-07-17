@@ -1,28 +1,47 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.spkpm.activities
 
 import android.app.ProgressDialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
 import android.view.MenuItem
+import android.view.WindowManager
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.example.spkpm.R
 import com.example.spkpm.models.KriteriaModel
 import com.example.spkpm.presenters.KriteriaPresenter
-import com.example.spkpm.presenters.KriteriaView
+import com.example.spkpm.views.KriteriaView
 import kotlinx.android.synthetic.main.activity_add_kriteria.*
+import kotlinx.android.synthetic.main.toolbar.*
 
 
 @Suppress("DEPRECATION")
-class AddKriteriaActivity : AppCompatActivity(), KriteriaView {
+class AddKriteriaActivity : AppCompatActivity(),
+    KriteriaView {
     private lateinit var presenter: KriteriaPresenter
     private var loading : ProgressDialog? = null
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_kriteria)
 
-        val actionBar = supportActionBar
-        actionBar?.setDisplayShowHomeEnabled(true)
+//        val actionBar = supportActionBar
+//        actionBar?.setDisplayShowHomeEnabled(true)
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+        supportActionBar?.elevation = 0F
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.statusBarColor = resources.getColor(R.color.colorWhite)
+
 
         // get passing data
         val kriteria_id = intent.getIntExtra("kriteria_id", 0)
@@ -35,7 +54,7 @@ class AddKriteriaActivity : AppCompatActivity(), KriteriaView {
 
         // proses simpan data
         if(kriteria_id == 0) {
-            actionBar?.title = "Tambah Kriteria"
+            tv_title.setText("Tambah Kriteria")
             btn_save.setOnClickListener{
                 val kriteria_nama = et_kriteria.text.toString()
                 when{
@@ -48,7 +67,7 @@ class AddKriteriaActivity : AppCompatActivity(), KriteriaView {
                 }
             }
         } else {
-            actionBar?.title = "Edit Kriteria"
+            tv_title.setText("Edit Kriteria")
             et_kriteria_id.setText(kriteria_id.toString())
             et_kriteria.setText(kriteria_nama)
             btn_save.setOnClickListener {
@@ -65,12 +84,15 @@ class AddKriteriaActivity : AppCompatActivity(), KriteriaView {
             }
         }
 
-    }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> onBackPressed()
+        // back button
+        backbutton.setOnClickListener{
+            onBackPressed()
         }
-        return true
+
+        // back batal
+        btn_batal.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     override fun onLoading(message: String) {

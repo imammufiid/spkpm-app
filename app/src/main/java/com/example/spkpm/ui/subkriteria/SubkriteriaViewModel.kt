@@ -1,10 +1,10 @@
-package com.example.spkpm.ui.slideshow
+package com.example.spkpm.ui.subkriteria
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class SlideshowViewModel : ViewModel() {
+class SubkriteriaViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is slideshow Fragment"

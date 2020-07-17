@@ -20,4 +20,8 @@
     <string name="menu_laporan">Laporan</string>
     <string name="menu_pengaturan">Pengaturan</string>
     <string name="menu_logout">Logout</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_hapus">Hapus</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -6,43 +6,68 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar"
     tools:context=".activities.AddKriteriaActivity">
+    <include
+        layout="@layout/toolbar"/>
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvKriteria"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         android:layout_marginTop="10dp"
-        android:text="Nama Kriteria"/>
-    <TextView
-        android:id="@+id/et_kriteria_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"/>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="5dp"
-        app:startIconDrawable="@drawable/ic_criteria"
-        style="@style/LoginTextInputLayoutStyle">
-        <EditText
-            android:id="@+id/et_kriteria"
+        android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvKriteria"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="5dp"/>
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_save"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorPrimary"
-        android:text="SIMPAN"
-        android:textColor="#fff"
-        android:layout_marginTop="20dp"
-        android:paddingVertical="15dp"
-        android:layout_marginHorizontal="16dp"/>
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:text="Nama Kriteria"/>
+        <TextView
+            android:id="@+id/et_kriteria_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="5dp"
+            app:startIconDrawable="@drawable/ic_criteria"
+            style="@style/LoginTextInputLayoutStyle">
+            <EditText
+                android:id="@+id/et_kriteria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="5dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="SIMPAN"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:layout_marginTop="40dp"
+            android:paddingVertical="15dp"
+            android:layout_marginHorizontal="16dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_batal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:strokeColor="@color/colorPrimary"
+            android:text="BATAL"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="5dp"
+            android:paddingVertical="15dp"
+            android:layout_marginHorizontal="16dp"/>
+    </LinearLayout>
+
 
 </LinearLayout>

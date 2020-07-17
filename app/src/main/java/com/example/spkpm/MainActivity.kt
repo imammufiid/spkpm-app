@@ -1,7 +1,10 @@
 package com.example.spkpm
 
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
+import android.view.WindowManager
+import androidx.annotation.RequiresApi
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -14,15 +17,20 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.statusBarColor = resources.getColor(R.color.colorWhite)
 
 //        val fab: FloatingActionButton = findViewById(R.id.fab)
 //        fab.setOnClickListener { view ->

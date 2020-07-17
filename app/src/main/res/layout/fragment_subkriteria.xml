@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.gallery.GalleryFragment">
+    android:paddingTop="10dp"
+    tools:context=".ui.subkriteria.SubKriteriaFragment">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh"
@@ -17,10 +18,10 @@
         android:layout_alignParentStart="true">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvKriteria"
+            android:id="@+id/rvSubkriteria"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/single_kriteria_list"/>
+            tools:listitem="@layout/single_subkriteria_list"/>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -28,7 +29,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
+        android:backgroundTint="@color/colorPrimary"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:src="@drawable/ic_add"/>
+        android:src="@drawable/ic_baseline_add_24"/>
 </RelativeLayout>

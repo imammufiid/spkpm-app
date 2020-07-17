@@ -1,4 +1,6 @@
-package com.example.spkpm.models
+package com.example.spkpm.responses
+
+import com.example.spkpm.models.KriteriaModel
 
 class KriteriaResponse {
     var status: Int? = null

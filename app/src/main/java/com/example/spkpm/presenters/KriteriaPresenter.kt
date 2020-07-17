@@ -4,9 +4,11 @@ import android.annotation.SuppressLint
 import android.util.Log
 import com.example.rxjavaproject.API.ApiClient
 import com.example.rxjavaproject.API.ApiInterface
+import com.example.spkpm.views.KriteriaView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
+@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class KriteriaPresenter(private val view: KriteriaView) {
     @SuppressLint("CheckResult")
     fun getKriteria() {

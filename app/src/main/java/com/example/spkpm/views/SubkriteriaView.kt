@@ -1,13 +1,14 @@
-package com.example.spkpm.presenters
+package com.example.spkpm.views
 
 import com.example.spkpm.models.KriteriaModel
+import com.example.spkpm.models.SubkriteriaModel
 
-interface KriteriaView {
+interface SubkriteriaView {
     // LOADING
     fun onLoading(message: String)
     fun hideLoading()
     // GET
-    fun onSuccessGetData(data: List<KriteriaModel>?)
+    fun onSuccessGetData(data: List<SubkriteriaModel>?)
     fun onFailedGetData(message: String)
     fun onDataNull(message: String)
 
@@ -22,4 +23,12 @@ interface KriteriaView {
     // DELETE
     fun onSuccessUpdate(message: String)
     fun onFailedUpdate(message: String)
+
+    // SET SPINNER
+    fun onSuccessSpinner(data: List<KriteriaModel>)
+    fun onFailedSpinner(message: String)
+
+    // SET KODE
+    fun onSuccessGenerate(kode: String)
+    fun onFailedGenerate(message: String)
 }

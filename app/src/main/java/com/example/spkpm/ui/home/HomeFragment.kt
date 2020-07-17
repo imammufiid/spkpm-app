@@ -1,7 +1,10 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.spkpm.ui.home
 
 import android.content.Context
 import android.content.pm.ApplicationInfo
+import android.graphics.Typeface
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Bundle
@@ -10,6 +13,7 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -17,6 +21,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 //import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import com.example.spkpm.R
+import kotlinx.android.synthetic.main.fragment_home.*
 
 
 @Suppress("DEPRECATION")
@@ -32,14 +37,13 @@ class HomeFragment : Fragment() {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+//        val textView: TextView = root.findViewById(R.id.text_home)
+//        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+//            textView.text = it
+//        })
         if(!checkConnection()) {
-            val toast = Toast.makeText(context, "Please Check your Connection", Toast.LENGTH_SHORT)
-            toast.setGravity(Gravity.CENTER_VERTICAL , 0, 0)
-            toast.show()
+            val checkConnection = root.findViewById<View>(R.id.check_connection) as LinearLayout?
+            checkConnection?.visibility = View.VISIBLE
         }
         return root
     }
@@ -50,20 +54,4 @@ class HomeFragment : Fragment() {
         val isConnected: Boolean = activeNetwork?.isConnectedOrConnecting == true
         return isConnected
     }
-
-//    private fun isConnected(): Boolean {
-//        var connected = false
-//        try{
-//            val connectivity =
-//                ApplicationProvider.getApplicationContext()
-//                    .getSystemService(Context.CONNECTIVITY_SERVICE)
-//
-//            val nInfo: NetworkInfo = connectivity.getActiveNetworkInfo()
-//            connected = nInfo != null && nInfo.isAvailable && nInfo.isConnected
-//            return connected
-//        } catch (e: Exception) {
-//            Log.e("Connectivity Connection", e.message)
-//        }
-//        return connected
-//    }
 }

@@ -1,10 +1,10 @@
-package com.example.spkpm.ui.gallery
+package com.example.spkpm.ui.kriteria
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class GalleryViewModel : ViewModel() {
+class KriteriaViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is gallery Fragment"
