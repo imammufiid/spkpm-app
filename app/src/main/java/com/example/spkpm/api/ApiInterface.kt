@@ -2,6 +2,7 @@ package com.example.rxjavaproject.API
 
 import com.example.spkpm.responses.KodeSubResponse
 import com.example.spkpm.responses.KriteriaResponse
+import com.example.spkpm.responses.RekomendasiResponse
 import com.example.spkpm.responses.SubkriteriaResponse
 import io.reactivex.Observable
 import retrofit2.http.*
@@ -20,6 +21,9 @@ interface ApiInterface {
     @GET("subkriteria/generate_kode")
     fun getGenerateKode() : Observable<KodeSubResponse>
 
+    @GET("rekom/getrekom")
+    fun getRekomendasi() : Observable<RekomendasiResponse>
+
     // ADD DATA /////////////////////////////////////////////////
     @FormUrlEncoded
     @POST("kriteria/addKriteria")
@@ -36,6 +40,12 @@ interface ApiInterface {
         @Field("subkriteria_keterangan") subkriteria_keterangan: String?
     ) : Observable<SubkriteriaResponse>
 
+    @FormUrlEncoded
+    @POST("rekom/addRekom")
+    fun addRekomendasi(
+        @Field("rekomendasi_kode") rekomendasi_kode: String?
+    ) : Observable<RekomendasiResponse>
+
     // DELETE DATA /////////////////////////////////////////////////
     @FormUrlEncoded
     @POST("kriteria/deleteKriteria")
@@ -48,6 +58,12 @@ interface ApiInterface {
     fun deleteSubkriteria(
         @Field("subkriteria_id") subkriteria_id: Int?
     ) : Observable<SubkriteriaResponse>
+
+    @FormUrlEncoded
+    @POST("rekom/deleteRekom")
+    fun deleteRekomendasi(
+        @Field("rekomendasi_id") rekomendasi_id: Int?
+    ) : Observable<RekomendasiResponse>
 
     // UPDATE DATA /////////////////////////////////////////////////
     @FormUrlEncoded
@@ -66,4 +82,11 @@ interface ApiInterface {
         @Field("kriteria_id") kriteria_id: Int?,
         @Field("subkriteria_keterangan") subkriteria_keterangan: String?
     ) : Observable<SubkriteriaResponse>
+
+    @FormUrlEncoded
+    @POST("rekom/updateRekom")
+    fun updateRekomendasi(
+        @Field("rekomendasi_id") rekomendasi_id: Int?,
+        @Field("rekomendasi_kode")  rekomendasi_kode: String?
+    ) : Observable<RekomendasiResponse>
 }

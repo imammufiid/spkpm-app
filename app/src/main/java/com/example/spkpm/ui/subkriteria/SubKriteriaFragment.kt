@@ -26,6 +26,8 @@ import com.example.spkpm.adapters.ViewPagerAdapter
 import com.example.spkpm.models.KriteriaModel
 import com.example.spkpm.models.SubkriteriaModel
 import com.example.spkpm.presenters.SubkriteriaPresenter
+import com.example.spkpm.ui.rekomendasi.AkademikRekomFragment
+import com.example.spkpm.ui.rekomendasi.NonakaRekomFragment
 import com.example.spkpm.views.SubkriteriaView
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton

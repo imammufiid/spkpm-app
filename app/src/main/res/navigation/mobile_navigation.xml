@@ -22,4 +22,35 @@
         android:name="com.example.spkpm.ui.subkriteria.SubKriteriaFragment"
         android:label="@string/menu_subkriteria"
         tools:layout="@layout/fragment_subkriteria" />
+
+    <fragment
+        android:id="@+id/nav_rekomendasi"
+        android:name="com.example.spkpm.ui.rekomendasi.RekomendasiFragment"
+        android:label="@string/menu_rekomendasi"
+        tools:layout="@layout/fragment_rekomendasi"/>
+
+    <fragment
+        android:id="@+id/nav_siswa"
+        android:name="com.example.spkpm.ui.siswa.SiswaFragment"
+        android:label="@string/menu_siswa"
+        tools:layout="@layout/fragment_siswa"/>
+
+    <fragment
+        android:id="@+id/nav_nilai_gap"
+        android:name="com.example.spkpm.ui.nilaigap.NilaiGapFragment"
+        android:label="@string/menu_nilai_gap"
+        tools:layout="@layout/fragment_nilai_gap"/>
+
+    <fragment
+        android:id="@+id/nav_bobot_gap"
+        android:name="com.example.spkpm.ui.bobotgap.BobotGapFragment"
+        android:label="@string/menu_bobot_gap"
+        tools:layout="@layout/fragment_bobot_gap"/>
+
+    <fragment
+        android:id="@+id/nav_faktor"
+        android:name="com.example.spkpm.ui.hasil.HasilFragment"
+        android:label="@string/menu_faktor"
+        tools:layout="@layout/fragment_hasil"/>
+
 </navigation>

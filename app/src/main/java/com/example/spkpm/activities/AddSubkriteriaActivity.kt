@@ -82,9 +82,7 @@ class AddSubkriteriaActivity : AppCompatActivity(), SubkriteriaView {
                 position: Int,
                 id: Long
             ) {
-                //val selectedName: String = parent?.getItemAtPosition(position).toString()
                 id_kriteria = idKriteria[position]
-                //Toast.makeText(applicationContext, id.toString(), Toast.LENGTH_SHORT).show()
             }
 
         }

@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             app:tabMode="fixed"
             android:background="#FFFFFF"
-            android:elevation="3dp"
+            app:elevation="3dp"
             app:tabGravity="fill"/>
     </androidx.viewpager.widget.ViewPager>
 

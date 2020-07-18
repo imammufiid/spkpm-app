@@ -1,41 +1,36 @@
-@file:Suppress("DEPRECATION")
-
 package com.example.spkpm.activities
 
 import android.app.ProgressDialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Build
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
-import android.view.MenuItem
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.spkpm.R
-import com.example.spkpm.models.KriteriaModel
+import com.example.spkpm.models.RekomendasiModel
 import com.example.spkpm.presenters.KriteriaPresenter
-import com.example.spkpm.views.KriteriaView
+import com.example.spkpm.presenters.RekomendasiPresenter
+import com.example.spkpm.views.RekomendasiView
 import kotlinx.android.synthetic.main.activity_add_kriteria.*
+import kotlinx.android.synthetic.main.activity_add_kriteria.btn_batal
+import kotlinx.android.synthetic.main.activity_add_kriteria.btn_save
+import kotlinx.android.synthetic.main.activity_add_rekomendasi.*
 import kotlinx.android.synthetic.main.toolbar.*
 
-
 @Suppress("DEPRECATION")
-class AddKriteriaActivity : AppCompatActivity(),
-    KriteriaView {
-    private lateinit var presenter: KriteriaPresenter
+class AddRekomendasiActivity : AppCompatActivity(), RekomendasiView {
     private var loading : ProgressDialog? = null
+    private var presenter: RekomendasiPresenter? = null
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_kriteria)
+        setContentView(R.layout.activity_add_rekomendasi)
 
-//        val actionBar = supportActionBar
-//        actionBar?.setDisplayShowHomeEnabled(true)
-        // init toolbar action bar
+        // init toolbar
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
@@ -44,43 +39,44 @@ class AddKriteriaActivity : AppCompatActivity(),
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
         window.statusBarColor = resources.getColor(R.color.colorWhite)
 
-
         // get passing data
-        val kriteria_id = intent.getIntExtra("kriteria_id", 0)
-        val kriteria_nama = intent.getStringExtra("kriteria_nama")
+        val rekomendasi_id = intent.getIntExtra("rekomendasi_id", 0)
+        val rekomendasi_kode = intent.getStringExtra("rekomendasi_kode")
 
         // init presenter
-        presenter = KriteriaPresenter(this)
+        presenter = RekomendasiPresenter(this)
         // init progressbar
         loading = ProgressDialog(this)
 
-        // proses simpan data
-        if(kriteria_id == 0) {
-            tv_title.setText("Tambah Kriteria")
+        // check id
+        if(rekomendasi_id == 0) {
+            //
+            tv_title.setText("Tambah Rekomendasi")
             btn_save.setOnClickListener{
-                val kriteria_nama = et_kriteria.text.toString()
+                val rekom_kode = et_rekomendasi.text.toString()
                 when{
-                    kriteria_nama.trim() == "" -> {
-                        et_kriteria?.error = "This field Required!"
+                    rekom_kode.trim() == "" -> {
+                        et_rekomendasi?.error = "This field Required!"
                     }
                     else -> {
-                        presenter.addKriteria(kriteria_nama)
+                        presenter!!.addRekom(rekom_kode)
                     }
                 }
             }
         } else {
-            tv_title.setText("Edit Kriteria")
-            et_kriteria_id.setText(kriteria_id.toString())
-            et_kriteria.setText(kriteria_nama)
+            //
+            tv_title.setText("Edit Rekomendasi")
+            et_rekomendasi_id.setText(rekomendasi_id.toString())
+            et_rekomendasi.setText(rekomendasi_kode)
             btn_save.setOnClickListener {
-                val kriteria_id: Int = et_kriteria_id.text.toString().toInt()
-                val kriteria_nama: String = et_kriteria.text.toString()
+                val rekom_id = et_rekomendasi_id.text.toString().toInt()
+                val rekom_kode = et_rekomendasi.text.toString()
                 when{
-                    kriteria_nama.trim() == "" -> {
-                        et_kriteria?.error = "This field Required!"
+                    rekom_kode.trim() == "" -> {
+                        et_rekomendasi?.error = "This field Required!"
                     }
                     else -> {
-                        presenter.updateKriteria(kriteria_id, kriteria_nama)
+                        presenter!!.updateRekom(rekom_id, rekom_kode)
                     }
                 }
             }
@@ -106,7 +102,7 @@ class AddKriteriaActivity : AppCompatActivity(),
         loading?.dismiss()
     }
 
-    override fun onSuccessGetData(data: List<KriteriaModel>?) {
+    override fun onSuccessGetData(data: List<RekomendasiModel>?) {
         TODO("Not yet implemented")
     }
 
@@ -132,11 +128,11 @@ class AddKriteriaActivity : AppCompatActivity(),
     }
 
     override fun onSuccessDelete(message: String) {
-
+        TODO("Not yet implemented")
     }
 
     override fun onFailedDelete(message: String) {
-
+        TODO("Not yet implemented")
     }
 
     override fun onSuccessUpdate(message: String) {
@@ -151,4 +147,5 @@ class AddKriteriaActivity : AppCompatActivity(),
         toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0)
         toast.show()
     }
+
 }

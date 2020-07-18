@@ -28,14 +28,6 @@
                 android:icon="@drawable/ic_rekomendasi"
                 android:title="@string/menu_rekomendasi" />
             <item
-                android:id="@+id/nav_rekom_nilai"
-                android:icon="@drawable/ic_rekomendasi"
-                android:title="@string/menu_rekomendasi_nilai" />
-            <item
-                android:id="@+id/nav_bobot"
-                android:icon="@drawable/ic_bobot"
-                android:title="@string/menu_bobot" />
-            <item
                 android:id="@+id/nav_siswa"
                 android:icon="@drawable/ic_siswa"
                 android:title="@string/menu_siswa" />
