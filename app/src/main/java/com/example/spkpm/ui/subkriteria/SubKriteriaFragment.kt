@@ -67,8 +67,8 @@ class SubKriteriaFragment : Fragment() {
 
     private fun setupViewPager(viewPager: ViewPager) {
         val adapter = ViewPagerAdapter(childFragmentManager)
-        adapter.populateFragment(CoreFragment(), "Core")
-        adapter.populateFragment(SecondaryFragment(), "Secondary")
+        adapter.populateFragment(CoreFragment(), "Akademik")
+        adapter.populateFragment(SecondaryFragment(), "Non Akademik")
         viewPager.adapter = adapter
         tabs_subkriteria?.setupWithViewPager(viewPager)
     }

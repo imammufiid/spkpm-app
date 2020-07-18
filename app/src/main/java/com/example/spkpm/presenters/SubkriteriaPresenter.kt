@@ -15,7 +15,7 @@ class SubkriteriaPresenter(private val view: SubkriteriaView) {
     fun getDataCore() {
         view.onLoading("Loading...")
         val apiInterface = ApiClient.getRetrofit().create(ApiInterface::class.java)
-        apiInterface.getSubkriteria("Core")
+        apiInterface.getSubkriteria(1)
             .subscribeOn(Schedulers.io())
             .unsubscribeOn(Schedulers.computation())
             .observeOn(AndroidSchedulers.mainThread())
@@ -36,7 +36,7 @@ class SubkriteriaPresenter(private val view: SubkriteriaView) {
     fun getDataCoreBySwipeRefresh() {
         //view.onLoading("Loading...")
         val apiInterface = ApiClient.getRetrofit().create(ApiInterface::class.java)
-        apiInterface.getSubkriteria("Core")
+        apiInterface.getSubkriteria(1)
             .subscribeOn(Schedulers.io())
             .unsubscribeOn(Schedulers.computation())
             .observeOn(AndroidSchedulers.mainThread())
@@ -57,7 +57,7 @@ class SubkriteriaPresenter(private val view: SubkriteriaView) {
     fun getDataSecondary() {
         view.onLoading("Loading...")
         val apiInterface = ApiClient.getRetrofit().create(ApiInterface::class.java)
-        apiInterface.getSubkriteria("Secondary")
+        apiInterface.getSubkriteria(2)
             .subscribeOn(Schedulers.io())
             .unsubscribeOn(Schedulers.computation())
             .observeOn(AndroidSchedulers.mainThread())
@@ -78,7 +78,7 @@ class SubkriteriaPresenter(private val view: SubkriteriaView) {
     fun getDataSecondaryBySwipeRefresh() {
         //view.onLoading("Loading...")
         val apiInterface = ApiClient.getRetrofit().create(ApiInterface::class.java)
-        apiInterface.getSubkriteria("Secondary")
+        apiInterface.getSubkriteria(2)
             .subscribeOn(Schedulers.io())
             .unsubscribeOn(Schedulers.computation())
             .observeOn(AndroidSchedulers.mainThread())

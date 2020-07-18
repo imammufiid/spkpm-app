@@ -12,9 +12,9 @@ interface ApiInterface {
     @GET("kriteria/getKriteria")
     fun getKriteria() : Observable<KriteriaResponse>
 
-    @GET("subkriteria/getSubkriteria/{faktor}")
+    @GET("subkriteria/getSubkriteria/{kriteria_id}")
     fun getSubkriteria(
-        @Path("faktor") faktor: String?
+        @Path("kriteria_id") kriteria_id: Int?
     ) : Observable<SubkriteriaResponse>
 
     @GET("subkriteria/generate_kode")
