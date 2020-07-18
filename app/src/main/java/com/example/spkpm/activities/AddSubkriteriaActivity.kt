@@ -1,33 +1,24 @@
 package com.example.spkpm.activities
 
-import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatRadioButton
 import androidx.appcompat.widget.Toolbar
-import com.example.rxjavaproject.API.ApiClient
-import com.example.rxjavaproject.API.ApiInterface
 import com.example.spkpm.R
 import com.example.spkpm.models.KriteriaModel
 import com.example.spkpm.models.SubkriteriaModel
 import com.example.spkpm.presenters.SubkriteriaPresenter
 import com.example.spkpm.views.SubkriteriaView
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_add_kriteria.*
 import kotlinx.android.synthetic.main.activity_add_subkriteria.*
 import kotlinx.android.synthetic.main.activity_add_subkriteria.btn_batal
 import kotlinx.android.synthetic.main.activity_add_subkriteria.btn_save
 import kotlinx.android.synthetic.main.toolbar.*
-import retrofit2.adapter.rxjava2.Result.response
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS", "DEPRECATION")
 class AddSubkriteriaActivity : AppCompatActivity(), SubkriteriaView {

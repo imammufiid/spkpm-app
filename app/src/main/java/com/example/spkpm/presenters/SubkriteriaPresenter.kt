@@ -1,13 +1,10 @@
 package com.example.spkpm.presenters
 
-import android.R
 import android.annotation.SuppressLint
 import android.util.Log
-import android.widget.ArrayAdapter
-import android.widget.Toast
 import com.example.rxjavaproject.API.ApiClient
 import com.example.rxjavaproject.API.ApiInterface
-import com.example.spkpm.models.KriteriaModel
+import com.example.spkpm.ui.subkriteria.CoreFragment
 import com.example.spkpm.views.SubkriteriaView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -15,10 +12,10 @@ import kotlinx.android.synthetic.main.activity_add_subkriteria.*
 
 class SubkriteriaPresenter(private val view: SubkriteriaView) {
     @SuppressLint("CheckResult")
-    fun getData() {
+    fun getDataCore() {
         view.onLoading("Loading...")
         val apiInterface = ApiClient.getRetrofit().create(ApiInterface::class.java)
-        apiInterface.getSubkriteria()
+        apiInterface.getSubkriteria("Core")
             .subscribeOn(Schedulers.io())
             .unsubscribeOn(Schedulers.computation())
             .observeOn(AndroidSchedulers.mainThread())
@@ -36,10 +33,52 @@ class SubkriteriaPresenter(private val view: SubkriteriaView) {
     }
 
     @SuppressLint("CheckResult")
-    fun getDataBySwipeRefresh() {
+    fun getDataCoreBySwipeRefresh() {
         //view.onLoading("Loading...")
         val apiInterface = ApiClient.getRetrofit().create(ApiInterface::class.java)
-        apiInterface.getSubkriteria()
+        apiInterface.getSubkriteria("Core")
+            .subscribeOn(Schedulers.io())
+            .unsubscribeOn(Schedulers.computation())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                if(it.status == 200) {
+                    view.onSuccessGetData(it.result)
+                } else {
+                    view.onDataNull((it.message))
+                }
+                //view.hideLoading()
+            }, {
+                view.onFailedGetData(it.localizedMessage)
+                //view.hideLoading()
+            })
+    }
+
+    @SuppressLint("CheckResult")
+    fun getDataSecondary() {
+        view.onLoading("Loading...")
+        val apiInterface = ApiClient.getRetrofit().create(ApiInterface::class.java)
+        apiInterface.getSubkriteria("Secondary")
+            .subscribeOn(Schedulers.io())
+            .unsubscribeOn(Schedulers.computation())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                if(it.status == 200) {
+                    view.onSuccessGetData(it.result)
+                } else {
+                    view.onDataNull((it.message))
+                }
+                view.hideLoading()
+            }, {
+                view.onFailedGetData(it.localizedMessage)
+                view.hideLoading()
+            })
+    }
+
+    @SuppressLint("CheckResult")
+    fun getDataSecondaryBySwipeRefresh() {
+        //view.onLoading("Loading...")
+        val apiInterface = ApiClient.getRetrofit().create(ApiInterface::class.java)
+        apiInterface.getSubkriteria("Secondary")
             .subscribeOn(Schedulers.io())
             .unsubscribeOn(Schedulers.computation())
             .observeOn(AndroidSchedulers.mainThread())

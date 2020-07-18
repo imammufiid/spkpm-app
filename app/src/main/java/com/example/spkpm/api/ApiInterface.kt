@@ -4,10 +4,7 @@ import com.example.spkpm.responses.KodeSubResponse
 import com.example.spkpm.responses.KriteriaResponse
 import com.example.spkpm.responses.SubkriteriaResponse
 import io.reactivex.Observable
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiInterface {
 
@@ -15,8 +12,10 @@ interface ApiInterface {
     @GET("kriteria/getKriteria")
     fun getKriteria() : Observable<KriteriaResponse>
 
-    @GET("subkriteria/getSubkriteria")
-    fun getSubkriteria() : Observable<SubkriteriaResponse>
+    @GET("subkriteria/getSubkriteria/{faktor}")
+    fun getSubkriteria(
+        @Path("faktor") faktor: String?
+    ) : Observable<SubkriteriaResponse>
 
     @GET("subkriteria/generate_kode")
     fun getGenerateKode() : Observable<KodeSubResponse>
