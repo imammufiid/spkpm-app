@@ -29,6 +29,9 @@ interface ApiInterface {
         @Path("kriteria_id") kriteria_id: Int?
     ) : Observable<RekomendasiNilaiResponse>
 
+    @GET("siswa/getsiswa")
+    fun getSiswa() : Observable<SiswaResponse>
+
     // ADD DATA /////////////////////////////////////////////////
     @FormUrlEncoded
     @POST("kriteria/addKriteria")
@@ -60,6 +63,14 @@ interface ApiInterface {
         @Field("rekomendasi_nilai_bobot") rekomendasi_nilai_bobot: Float?
     ) : Observable<RekomendasiNilaiResponse>
 
+    @FormUrlEncoded
+    @POST("siswa/addSiswa")
+    fun addSiswa(
+        @Field("user_nama") user_nama: String?,
+        @Field("user_email") user_email: String?,
+        @Field("user_jurusan") user_jurusan: String?
+    ) : Observable<SiswaResponse>
+
     // DELETE DATA /////////////////////////////////////////////////
     @FormUrlEncoded
     @POST("kriteria/deleteKriteria")
@@ -84,6 +95,12 @@ interface ApiInterface {
     fun deleteRekomNilai(
         @Field("rekomendasi_nilai_id") rekomendasi_nilai_id: Int?
     ) : Observable<RekomendasiNilaiResponse>
+
+    @FormUrlEncoded
+    @POST("siswa/deletesiswa")
+    fun deleteSiswa(
+        @Field("user_id") user_id: Int?
+    ) : Observable<SiswaResponse>
 
     // UPDATE DATA /////////////////////////////////////////////////
     @FormUrlEncoded
@@ -119,4 +136,13 @@ interface ApiInterface {
         @Field("rekomendasi_id") rekomendasi_id: Int?,
         @Field("rekomendasi_nilai_bobot") rekomendasi_nilai_bobot: Float?
     ) : Observable<RekomendasiNilaiResponse>
+
+    @FormUrlEncoded
+    @POST("siswa/updateSiswa")
+    fun updateSiswa(
+        @Field("user_id") user_id: Int?,
+        @Field("user_nama")  user_nama: String?,
+        @Field("user_email")  user_email: String?,
+        @Field("user_jurusan")  user_jurusan: String?
+    ) : Observable<SiswaResponse>
 }
