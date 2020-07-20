@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar"
+    tools:context=".activities.AddRekomendasiNilaiActivity">
+
+    <include
+        layout="@layout/toolbar"/>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/rekomendasi_nilai_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="15dp"
+        android:textSize="16sp"
+        android:visibility="gone"
+        android:text="Kode SubKriteria"/>
+
+    <!--  KRITERIA  -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvKriteria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="15dp"
+        android:textSize="16sp"
+        android:text="Kriteria"/>
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spinner_kriteria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:background="@drawable/outline_box"
+        android:layout_marginHorizontal="16dp"/>
+
+    <!--  SUBKRITERIA  -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvSubkriteria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="15dp"
+        android:textSize="16sp"
+        android:text="Sub Kriteria"/>
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spinner_subkriteria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:background="@drawable/outline_box"
+        android:layout_marginHorizontal="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="15dp">
+
+        <!--  REKOMENDASI  -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginRight="8dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvRekomendasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textSize="16sp"
+                android:text="Rekomendasi"/>
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinner_rekomendasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:background="@drawable/outline_box"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginLeft="8dp">
+
+            <!--  REKOMENDASI  -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvBobotNilai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textSize="16sp"
+                android:text="Bobot Nilai"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                style="@style/LoginTextInputLayoutStyle">
+                <EditText
+                    android:id="@+id/et_bobot_nilai"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="SIMPAN"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:layout_marginTop="40dp"
+        android:paddingVertical="15dp"
+        android:layout_marginHorizontal="16dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_batal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:strokeColor="@color/colorPrimary"
+        android:text="BATAL"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="5dp"
+        android:paddingVertical="15dp"
+        android:layout_marginHorizontal="16dp"/>
+</LinearLayout>

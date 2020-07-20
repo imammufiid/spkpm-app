@@ -1,9 +1,6 @@
 package com.example.rxjavaproject.API
 
-import com.example.spkpm.responses.KodeSubResponse
-import com.example.spkpm.responses.KriteriaResponse
-import com.example.spkpm.responses.RekomendasiResponse
-import com.example.spkpm.responses.SubkriteriaResponse
+import com.example.spkpm.responses.*
 import io.reactivex.Observable
 import retrofit2.http.*
 
@@ -18,11 +15,19 @@ interface ApiInterface {
         @Path("kriteria_id") kriteria_id: Int?
     ) : Observable<SubkriteriaResponse>
 
+    @GET("subkriteria/getAllSubkriteria")
+    fun getAllSubkriteria() : Observable<SubkriteriaResponse>
+
     @GET("subkriteria/generate_kode")
     fun getGenerateKode() : Observable<KodeSubResponse>
 
     @GET("rekom/getrekom")
     fun getRekomendasi() : Observable<RekomendasiResponse>
+
+    @GET("rekomNilai/getRekomNilai/{kriteria_id}")
+    fun getRekomNIlai(
+        @Path("kriteria_id") kriteria_id: Int?
+    ) : Observable<RekomendasiNilaiResponse>
 
     // ADD DATA /////////////////////////////////////////////////
     @FormUrlEncoded
@@ -46,6 +51,15 @@ interface ApiInterface {
         @Field("rekomendasi_kode") rekomendasi_kode: String?
     ) : Observable<RekomendasiResponse>
 
+    @FormUrlEncoded
+    @POST("rekomNilai/addRekomNilai")
+    fun addRekomNilai(
+        @Field("kriteria_id") kriteria_id: Int?,
+        @Field("subkriteria_id") subkriteria_id: Int?,
+        @Field("rekomendasi_id") rekomendasi_id: Int?,
+        @Field("rekomendasi_nilai_bobot") rekomendasi_nilai_bobot: Float?
+    ) : Observable<RekomendasiNilaiResponse>
+
     // DELETE DATA /////////////////////////////////////////////////
     @FormUrlEncoded
     @POST("kriteria/deleteKriteria")
@@ -64,6 +78,12 @@ interface ApiInterface {
     fun deleteRekomendasi(
         @Field("rekomendasi_id") rekomendasi_id: Int?
     ) : Observable<RekomendasiResponse>
+
+    @FormUrlEncoded
+    @POST("rekomNilai/deleteRekomNilai")
+    fun deleteRekomNilai(
+        @Field("rekomendasi_nilai_id") rekomendasi_nilai_id: Int?
+    ) : Observable<RekomendasiNilaiResponse>
 
     // UPDATE DATA /////////////////////////////////////////////////
     @FormUrlEncoded
@@ -89,4 +109,14 @@ interface ApiInterface {
         @Field("rekomendasi_id") rekomendasi_id: Int?,
         @Field("rekomendasi_kode")  rekomendasi_kode: String?
     ) : Observable<RekomendasiResponse>
+
+    @FormUrlEncoded
+    @POST("rekomNilai/updateRekomNilai")
+    fun updateRekomNilai(
+        @Field("rekomendasi_nilai_id") rekomendasi_nilai_id: Int?,
+        @Field("kriteria_id") kriteria_id: Int?,
+        @Field("subkriteria_id") subkriteria_id: Int?,
+        @Field("rekomendasi_id") rekomendasi_id: Int?,
+        @Field("rekomendasi_nilai_bobot") rekomendasi_nilai_bobot: Float?
+    ) : Observable<RekomendasiNilaiResponse>
 }

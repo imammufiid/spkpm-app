@@ -52,8 +52,6 @@ class KriteriaPresenter(private val view: KriteriaView) {
                 view.onFailedGetData(it.localizedMessage)
                 //view.hideLoading()
             })
-
-
     }
 
     @SuppressLint("CheckResult")

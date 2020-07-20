@@ -42,9 +42,9 @@ class RekomendasiNilaiActivity : AppCompatActivity() {
         // init fab
         val fab: FloatingActionButton = findViewById<View>(R.id.fab) as FloatingActionButton
         fab.setOnClickListener {
-            Toast.makeText(applicationContext, "Add", Toast.LENGTH_SHORT).show()
-//            val intent = Intent(this, AddSubkriteriaActivity::class.java)
-//            startActivity(intent)
+            //Toast.makeText(applicationContext, "Add", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, AddRekomendasiNilaiActivity::class.java)
+            startActivity(intent)
         }
         setupViewPager(pagerRekomNilai)
 
