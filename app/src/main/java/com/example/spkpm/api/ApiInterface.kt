@@ -32,6 +32,11 @@ interface ApiInterface {
     @GET("siswa/getsiswa")
     fun getSiswa() : Observable<SiswaResponse>
 
+    @GET("siswanilai/getsiswanilai/{user_id}")
+    fun getSiswaNilai(
+        @Path("user_id") user_id: Int?
+    ) : Observable<SiswaNilaiResponse>
+
     // ADD DATA /////////////////////////////////////////////////
     @FormUrlEncoded
     @POST("kriteria/addKriteria")
@@ -71,6 +76,14 @@ interface ApiInterface {
         @Field("user_jurusan") user_jurusan: String?
     ) : Observable<SiswaResponse>
 
+    @FormUrlEncoded
+    @POST("siswanilai/addSiswaNilai")
+    fun addSiswaNilai(
+        @Field("user_id") user_id: Int?,
+        @Field("subkriteria_id") subkriteria_id: Int?,
+        @Field("siswa_nilai") siswa_nilai: Int?
+    ) : Observable<SiswaNilaiResponse>
+
     // DELETE DATA /////////////////////////////////////////////////
     @FormUrlEncoded
     @POST("kriteria/deleteKriteria")
@@ -101,6 +114,12 @@ interface ApiInterface {
     fun deleteSiswa(
         @Field("user_id") user_id: Int?
     ) : Observable<SiswaResponse>
+
+    @FormUrlEncoded
+    @POST("siswanilai/deletesiswanilai")
+    fun deleteSiswaNilai(
+        @Field("nilai_id") nilai_id: Int?
+    ) : Observable<SiswaNilaiResponse>
 
     // UPDATE DATA /////////////////////////////////////////////////
     @FormUrlEncoded
@@ -145,4 +164,13 @@ interface ApiInterface {
         @Field("user_email")  user_email: String?,
         @Field("user_jurusan")  user_jurusan: String?
     ) : Observable<SiswaResponse>
+
+    @FormUrlEncoded
+    @POST("siswanilai/updateSiswaNilai")
+    fun updateSiswaNilai(
+        @Field("nilai_id") nilai_id: Int?,
+        @Field("user_id") user_id: Int?,
+        @Field("subkriteria_id") subkriteria_id: Int?,
+        @Field("siswa_nilai") siswa_nilai: Int?
+    ) : Observable<SiswaNilaiResponse>
 }

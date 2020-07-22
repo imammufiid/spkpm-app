@@ -19,6 +19,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.spkpm.R
 import com.example.spkpm.activities.AddKriteriaActivity
 import com.example.spkpm.activities.AddSiswaActivity
+import com.example.spkpm.activities.SiswaNilaiActivity
 import com.example.spkpm.adapters.KriteriaAdapter
 import com.example.spkpm.adapters.SiswaAdapter
 import com.example.spkpm.api.CheckConnection
@@ -102,6 +103,14 @@ class SiswaFragment : Fragment(), SiswaView {
             setHasFixedSize(true)
             layoutManager = viewManager
             adapter = SiswaAdapter(data, object : SiswaAdapter.OnClickItem{
+                override fun showNilai(item: SiswaModel?) {
+                    activity.let{
+                        val intent = Intent(it, SiswaNilaiActivity::class.java)
+                        intent.putExtra("user_id", item?.user_id)
+                        it?.startActivity(intent)
+                    }
+                }
+
                 @SuppressLint("ShowToast")
                 override fun clicked(item: SiswaModel?) {
                     activity.let {

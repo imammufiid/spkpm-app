@@ -13,15 +13,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.AddSiswaActivity"
-            android:parentActivityName=".MainActivity"
+        <activity android:name=".activities.AddSiswaNilaiActivity"
+            android:parentActivityName=".activities.SiswaNilaiActivity"
             android:theme="@style/AppTheme.NoActionBar">
-
         </activity>
+        <activity android:name=".activities.SiswaNilaiActivity"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".activities.AddSiswaActivity"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.AddRekomendasiNilaiActivity"
             android:parentActivityName=".activities.RekomendasiNilaiActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.RekomendasiNilaiActivity"
             android:parentActivityName=".MainActivity"

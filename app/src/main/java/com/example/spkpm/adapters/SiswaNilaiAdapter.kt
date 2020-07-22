@@ -8,45 +8,36 @@ import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import com.example.spkpm.R
 import com.example.spkpm.models.KriteriaModel
-import com.example.spkpm.models.SiswaModel
+import com.example.spkpm.models.SiswaNilaiModel
 import kotlinx.android.synthetic.main.single_kriteria_list.view.*
-import kotlinx.android.synthetic.main.single_siswa_list.view.*
+import kotlinx.android.synthetic.main.single_siswa_nilai_list.view.*
 
-class SiswaAdapter(private val data: List<SiswaModel>?, private val click: OnClickItem): RecyclerView.Adapter<SiswaAdapter.MyHolder>() {
+class SiswaNilaiAdapter(private val data: List<SiswaNilaiModel>?, private val click: OnClickItem): RecyclerView.Adapter<SiswaNilaiAdapter.MyHolder>() {
     var context: Context? = null
     class MyHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        fun onBind(get: SiswaModel?){
+        fun onBind(get: SiswaNilaiModel?){
             itemView.user_id.text = get?.user_id.toString()
-            itemView.user_nama.text = get?.user_nama
-            itemView.user_email.text = get?.user_email
+            itemView.nama_subkriteria.text = get?.subkriteria_nama
+            itemView.nilai_siswa.text = get?.siswa_nilai.toString()
         }
-
     }
 
-    interface OnClickItem {
-        fun showNilai(item: SiswaModel?)
-        fun clicked(item: SiswaModel?)
-        fun delete(item: SiswaModel?)
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SiswaNilaiAdapter.MyHolder {
         context = parent.context
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.single_siswa_list, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.single_siswa_nilai_list, parent, false)
         return MyHolder(view)
     }
 
     override fun getItemCount(): Int = data?.size ?: 0
 
-    override fun onBindViewHolder(holder: MyHolder, position: Int) {
+
+    override fun onBindViewHolder(holder: SiswaNilaiAdapter.MyHolder, position: Int) {
         holder.onBind(data?.get(position))
-        holder.itemView.btn_more.setOnClickListener {
-            val popmenu = PopupMenu(context, holder.itemView.btn_more)
-            popmenu.inflate(R.menu.action_menu_rekom)
+        holder.itemView.btn_action_more.setOnClickListener {
+            val popmenu = PopupMenu(context, holder.itemView.btn_action_more)
+            popmenu.inflate(R.menu.action_menu)
             popmenu.setOnMenuItemClickListener {
                 when(it.itemId){
-                    R.id.action_nilai -> {
-                        click.showNilai(data?.get(position))
-                    }
                     R.id.action_edit -> {
                         click.clicked(data?.get(position))
                     }
@@ -58,5 +49,10 @@ class SiswaAdapter(private val data: List<SiswaModel>?, private val click: OnCli
             }
             popmenu.show()
         }
+    }
+
+    interface OnClickItem {
+        fun clicked(item: SiswaNilaiModel?)
+        fun delete(item: SiswaNilaiModel?)
     }
 }
