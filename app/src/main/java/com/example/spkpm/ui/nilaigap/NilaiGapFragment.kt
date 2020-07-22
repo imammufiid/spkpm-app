@@ -33,7 +33,7 @@ class NilaiGapFragment : Fragment() {
         // Inflate the layout for this fragment
         val root =  inflater.inflate(R.layout.fragment_nilai_gap, container, false)
         val webView = root.findViewById<View>(R.id.webviewNilaiGap) as WebView
-        webView.loadUrl("http://192.168.1.4/spkpm/nilai_gap/")
+        webView.loadUrl("http://demo-spkpm.sanscoding.com/nilai_gap")
 
         val webViewSet = webView.settings
         webViewSet.javaScriptEnabled = true

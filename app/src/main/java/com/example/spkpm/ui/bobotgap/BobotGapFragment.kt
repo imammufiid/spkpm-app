@@ -35,7 +35,7 @@ class BobotGapFragment : Fragment() {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_bobot_gap, container, false)
         val webView = root.findViewById<View>(R.id.webviewNilaiGap) as WebView
-        webView.loadUrl("http://192.168.1.4/spkpm/bobot_gap/")
+        webView.loadUrl("http://demo-spkpm.sanscoding.com/bobot_gap")
 
         val webViewSet = webView.settings
         webViewSet.javaScriptEnabled = true

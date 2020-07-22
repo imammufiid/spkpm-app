@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object ApiClient {
-    private final const val BASE_URL = "http://192.168.1.4/spkpm/api/"
+    private final const val BASE_URL = "http://demo-spkpm.sanscoding.com/api/"
     fun getRetrofit() : Retrofit{
         return Retrofit.Builder()
             .baseUrl(BASE_URL)

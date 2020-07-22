@@ -35,7 +35,7 @@ class HasilFragment : Fragment() {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_hasil, container, false)
         val webView = root.findViewById<View>(R.id.webviewNilaiGap) as WebView
-        webView.loadUrl("http://192.168.1.4/spkpm/faktor/")
+        webView.loadUrl("http://demo-spkpm.sanscoding.com/faktor")
 
         val webViewSet = webView.settings
         webViewSet.javaScriptEnabled = true
