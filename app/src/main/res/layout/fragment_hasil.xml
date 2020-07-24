@@ -24,5 +24,14 @@
         tools:layout_editor_absoluteX="16dp"
         android:layout_marginTop="-50dp"
         tools:layout_editor_absoluteY="0dp"/>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:max="3"
+        android:progress="100"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/colorPrimary"
+        android:layout_centerInParent="true"/>
 
 </RelativeLayout>

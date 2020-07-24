@@ -51,27 +51,11 @@
                 android:id="@+id/nav_faktor"
                 android:icon="@drawable/ic_faktor"
                 android:title="@string/menu_faktor" />
-            </group>
-        </menu>
-    </item>
-    <item
-        android:title="Sistem"
-        android:id="@+id/sistem">
-        <menu>
-        <group android:checkableBehavior="single">
             <item
                 android:id="@+id/nav_laporan"
                 android:icon="@drawable/ic_laporan"
                 android:title="@string/menu_laporan" />
-            <item
-                android:id="@+id/nav_pengaturan"
-                android:icon="@drawable/ic_setting"
-                android:title="@string/menu_pengaturan" />
-            <item
-                android:id="@+id/nav_logout"
-                android:icon="@drawable/ic_logout"
-                android:title="@string/menu_logout" />
-        </group>
+            </group>
         </menu>
     </item>
 </menu>

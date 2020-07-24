@@ -32,7 +32,7 @@ interface ApiInterface {
     @GET("siswa/getsiswa")
     fun getSiswa() : Observable<SiswaResponse>
 
-    @GET("siswanilai/getsiswanilai/{user_id}")
+    @GET("SiswaNilai/getsiswanilai/{user_id}")
     fun getSiswaNilai(
         @Path("user_id") user_id: Int?
     ) : Observable<SiswaNilaiResponse>

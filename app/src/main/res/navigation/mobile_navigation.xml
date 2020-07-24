@@ -53,4 +53,10 @@
         android:label="@string/menu_faktor"
         tools:layout="@layout/fragment_hasil"/>
 
+    <fragment
+        android:id="@+id/nav_laporan"
+        android:name="com.example.spkpm.ui.laporan.LaporanFragment"
+        android:label="@string/menu_laporan"
+        tools:layout="@layout/fragment_laporan"/>
+
 </navigation>
